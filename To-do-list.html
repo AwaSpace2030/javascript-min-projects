@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Mini Projects</title>
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="assets/js/projects/to-do-list/to-do-list.css"
+    />
+
+    <!-- Icons Library -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Code Format Library -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Top Bar -->
+    <section id="header">
+      <!--we get it from js-->
+    </section>
+    <!-- End of Navigation -->
+
+    <!-- Main Content Section -->
+    <section class="intro-area container con-details">
+      <div class="container">
+        <div class="todo">
+          <h1>Todo List javascript </h1>
+           
+              <div class="todo-con">
+                 <div class="list-card">
+                   <h2>Todo list <i class="ri-list-check"></i> </h2>
+                   <div class="addForm">
+                    <input type="text" name="text" placeholder="Add your task" id="textform"/>
+                    <button id="btn-add" class="btn-add"><i class="ri-add-line"></i></button>
+                    <p id="message" class="list-msg">Got something to add today? 😊</p>
+                   </div>
+                   <ul class="list" id="list">
+                   
+                  
+                     
+                </ul>
+                
+                 </div>
+              </div>
+        
+          </div>
+        </div>
+
+        <!-- Code Snippet Section -->
+        <section class="code">
+          <h1>Code Snippet</h1>
+    <div>
+        <pre><code class="Snippet language-js">
+  /* To do list js */
+
+  let list = document.getElementById("list");
+  let btn_dd = document.getElementById("btn-add");
+  let message = document.getElementById("message");
+
+  // Load saved tasks from LocalStorage, or start with an empty array
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  // Add new task when the button is clicked
+  btn_dd.addEventListener("click", () => {
+    let textform = document.getElementById("textform").value;
+    if (textform.trim() === "") {
+        message.innerHTML = `<span class="msg">Please add some new task! 😊</span>`;
+        return;
+    }
+
+    // Add task as object (this is better for future flexibility)
+    tasks.push({ text: textform, completed: false });
+
+    // Save updated tasks to LocalStorage
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    document.getElementById("textform").value = "";
+    renderTasks();
+  });
+
+  // Function to render all tasks in the list
+  function renderTasks() {
+    list.innerHTML = "";
+    tasks.forEach((task, index) => {
+        let className = task.completed ? "completed" : ""; // Check if task is completed
+        list.innerHTML += `
+            <li class="item ${className}">
+                <a href="#" class="item-link ${className}" onclick="completeTask(${index})">${task.text}</a>
+                <button class="btn-del" onclick="deleteTask(${index})">
+                    <i class="ri-delete-bin-6-fill"></i>
+                </button>
+            </li>
+        `;
+    });
+
+    message.innerHTML = "Got something to add today? 😊";
+  }
+
+  // Function to delete a task by index
+  function deleteTask(index) {
+    tasks.splice(index, 1);
+
+    // Save updated tasks to LocalStorage
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    renderTasks();
+  }
+
+  // Function to mark task as completed
+  function completeTask(index) {
+    tasks[index].completed = !tasks[index].completed; // Toggle completed status
+
+    // Save updated tasks to LocalStorage
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    renderTasks();
+  }
+
+  // Important: Render tasks when the page loads to display saved tasks
+  renderTasks();
+        </code></pre>
+    </div>
+      </section>
+      
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <!-- End of Footer -->
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/projects/to-do-list/to-do-list.js"></script>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Mini Projects</title>
+
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="assets/js/projects/Gallery/gallery.css"
+    />
+
+    <!-- Icons Library -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Code Format Library -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Top Bar -->
+    <section id="header">
+      <!--we get it from js-->
+    </section>
+    <!-- End of Navigation -->
+
+    <!-- Main Content Section -->
+    <section class="intro-area container con-details">
+      <div class="container">
+        <div class="todo">
+          <h1>Gallery Filter</h1>
+          <div class="gallery-con">
+            <ul class="filter-nav">
+              <li><a href="#" onclick="filterProducts('*')">All</a></li>
+              <li><a href="#" onclick="filterProducts('fast')">Fast food</a></li>
+              <li><a href="#" onclick="filterProducts('healthy')">Healthy meals</a></li>
+              <li><a href="#" onclick="filterProducts('fruits')">Fruits</a></li>
+              <li><a href="#" onclick="filterProducts('drinks')">Drinks</a></li>
+          </ul>
+          <div class="gallery-group" id="gallery-group"> 
+          <!-- all data come from js -->
+            
+          </div>
+          
+          
+          
+          </div>
+           
+         
+        
+          </div>
+        </div>
+
+        <!-- Code Snippet Section -->
+        <section class="code">
+          <h1>Code Snippet</h1>
+    <div>
+        <pre><code class="Snippet language-js">
+    /* Gallery js code */
+    const products = [
+    {
+      image: "assets/img/Gallery/bannana.jpg",
+      name: "Banana",
+      price: "20$",
+      category: "fruits",
+    },
+    {
+      image: "assets/img/Gallery/apple.jpg",
+      name: "Apple",
+      price: "25$",
+      category: "fruits",
+    },
+    {
+      image: "assets/img/Gallery/burger.jpg",
+      name: "Burger",
+      price: "10$",
+      category: "fast",
+    },
+    {
+      image: "assets/img/Gallery/pizza.jpg",
+      name: "Pizza",
+      price: "12$",
+      category: "fast",
+    },
+    {
+      image: "assets/img/Gallery/salad.jpg",
+      name: "Salad",
+      price: "15$",
+      category: "healthy",
+    },
+    {
+      image: "assets/img/Gallery/grilled.jpg",
+      name: "Grilled Chicken",
+      price: "20$",
+      category: "healthy",
+    },
+    {
+      image: "assets/img/Gallery/coke.jpg",
+      name: "Coke",
+      price: "5$",
+      category: "drinks",
+    },
+    {
+      image: "assets/img/Gallery/juice.jpg",
+      name: "Juice",
+      price: "8$",
+      category: "drinks",
+    },
+  ];
+  
+  let itemsGroup = document.getElementById("gallery-group");
+  
+  function filterProducts(category) {
+    let collect = "";
+  
+    // Loop through each product to display based on the selected category
+    products.forEach((item) => {
+      // If the category is '*' (All), or the item category matches the selected category
+      if (category === "*" || item.category === category) {
+        collect += `<div class="gallery-item ${item.category}">
+                  <img src="${item.image}" alt="${item.name}">
+                  <p>${item.name} <span>${item.price}</span></p>
+                </div>
+                `;
+      }
+    });
+  
+    // Update the gallery with the filtered products
+    itemsGroup.innerHTML = collect;
+  
+    // Add a class to show items after the content is loaded
+    setTimeout(() => {
+      let items = document.querySelectorAll(".gallery-item");
+      items.forEach((item) => {
+        item.classList.add("show");
+      });
+    }, 10);
+  }
+  
+  // Call the filter function with '*' to show all products by default
+  filterProducts("*");
+  
+        </code></pre>
+    </div>
+      </section>
+      
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <!-- End of Footer -->
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/projects/Gallery/gallery.js"></script>
+  </body>
+</html>

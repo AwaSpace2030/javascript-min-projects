@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Mini Projects</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="assets/js/projects/calculator/calculator.css"
+    />
+    <link rel="icon" href="assets/img/code.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Code Highlight Library -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Top Bar -->
+    <section id="header">
+      <!--we get it from js-->
+    </section>
+    <!-- End of Navigation -->
+
+    <!-- Calculator Section -->
+    <section class="intro-area container con-details">
+      <div class="container">
+        <h1>Simple Calculator 🔢 - Supports Basic Operations</h1>
+
+        <section class="calculator">
+          <div class="cal-container">
+            <img src="assets/img/phone_035-black.png" />
+            <div class="cal-data">
+              <div class="formal" id="formal"></div>
+              <div class="result">
+                <h1 id="screen"></h1>
+              </div>
+              <div class="control">
+                <div class="butn orange">/</div>
+                <div class="butn gray" id="percent">%</div>
+                <div class="butn gray" id="del">DEL</div>
+                <div class="c-btn gray" id="delback">C</div>
+
+                <div class="butn orange">*</div>
+                <div class="butn">9</div>
+                <div class="butn">8</div>
+                <div class="butn">7</div>
+                <div class="butn orange">-</div>
+
+                <div class="butn">6</div>
+                <div class="butn">5</div>
+                <div class="butn">4</div>
+                <div class="butn orange">+</div>
+
+                <div class="butn">3</div>
+                <div class="butn">2</div>
+                <div class="butn">1</div>
+                <div class="sum orange" id="sum">=</div>
+
+                <div class="butn">.</div>
+                <div class="butn">0</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Code Snippet Section -->
+      <section
+        class="banner-area container"
+        style="margin-top: -35px; border-radius: 0; padding-top: 40px"
+      >
+        <div class="cal-code">
+          <h1>Code Snippet</h1>
+          <pre class="language-js">
+<code class="Snippet language-js" style="font-size: 13px;">
+document.addEventListener("DOMContentLoaded", () => {
+  let display = document.getElementById("formal");
+  let screen = document.getElementById("screen");
+  let buttons = document.querySelectorAll(".butn");
+  let sum = document.getElementById("sum");
+  let del = document.getElementById("del");
+  let delback = document.getElementById("delback");
+  let percent = document.getElementById("percent");
+
+  screen.textContent = "0";
+
+  buttons.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+          let value = event.target.textContent;
+          display.textContent += value;
+      });
+  });
+
+  sum.addEventListener("click", () => {
+      try {
+          let equation = display.textContent.replace(/[^0-9+\-*/().]/g, "");
+          let result = equation ? new Function("return " + equation)() : 0;
+          screen.textContent = Number(result.toFixed(2));
+      } catch (error) {
+          screen.textContent = "Error!";
+      }
+  });
+
+  del.addEventListener("click", () => {
+      display.textContent = "";
+      screen.textContent = "0";
+  });
+
+  delback.addEventListener("click", () => {
+      let currentText = display.textContent;
+      display.textContent = currentText.slice(0, -1);
+      if (display.textContent === "") {
+          screen.textContent = "0";
+      }
+  });
+
+  percent.addEventListener("click", () => {
+      let currentValue = parseFloat(display.textContent) || 0;
+      let percentage = currentValue / 100;
+      display.textContent = percentage;
+  });
+});
+</code>
+          </pre>
+        </div>
+      </section>
+      <!-- End of Code Snippet Section -->
+    </section>
+    <!-- End of Calculator Section -->
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+    <!-- End of Footer -->
+
+    <!-- JS Files -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/projects/calculator/calculator.js"></script>
+  </body>
+</html>

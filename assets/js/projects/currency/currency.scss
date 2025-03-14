@@ -1,0 +1,93 @@
+/*currency*/
+
+.Currency-con {
+  padding: 20px;
+  background-color: #622ed8;
+  margin-top: 20px;
+  .currency-card {
+    background-color: white;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    padding: 40px;
+    width: 500px;
+    margin: 40px auto;
+    h2 {
+      color: rgb(45, 45, 45);
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+}
+
+.form {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  select {
+    width: 46%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+}
+.in {
+  padding: 8px 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid gray;
+  width: 95%;
+}
+.display {
+  border-radius: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 20px;
+  margin-top: 20px;
+  p {
+    color: #622ed8;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #622ed8;
+  padding: 10px 5px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  -ms-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  margin-top: 20px;
+  &:hover {
+    background-color: #411a9d;
+  }
+}

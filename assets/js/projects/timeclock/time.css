@@ -1,0 +1,14 @@
+/*time oclock css */
+.project-area {
+  display: flex;
+  background-color: #f8f8f8;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+  padding: 20px 0;
+}
+.project-area span {
+  font-size: 24px;
+  font-weight: bold;
+}/*# sourceMappingURL=time.css.map */

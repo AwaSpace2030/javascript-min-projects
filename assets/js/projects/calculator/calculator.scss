@@ -1,0 +1,133 @@
+@mixin button {
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333333;
+  color: white;
+  height: 40px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.calculator {
+  background-color: rgba(239, 239, 239, 0.466);
+  min-height: 450px;
+  padding: 20px;
+  margin-top: 15px;
+  display: flex;
+
+  .cal-container {
+    height: 450px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+
+    img {
+      width: 240px;
+    }
+
+    .cal-data {
+      position: absolute;
+      width: 240px;
+      z-index: 10;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .formal {
+        height: 31px;
+        margin-top: 60px;
+        padding: 0 20px;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        color: white;
+      }
+
+      .result {
+        height: 60px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 0 20px;
+
+        h1 {
+          font-size: 28px;
+          color: white;
+        }
+      }
+
+      .control {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        direction: rtl;
+        margin-top: -23px;
+        padding: 18px;
+        gap: 6px;
+
+        .butn {
+          @include button;
+        }
+      }
+    }
+  }
+}
+
+// تطبيق الميكسين على العناصر المناسبة
+.sum {
+  @include button;
+}
+
+.c-btn {
+  @include button;
+  color: white !important;
+}
+
+.percent {
+  @include button;
+  color: white !important;
+}
+.orange {
+  background-color: #ff9f0c !important;
+  color: white;
+}
+
+.gray {
+  background-color: #a5a5a5 !important;
+  color: black;
+}
+
+.darkgray {
+  background-color: #333333;
+  color: white;
+}
+
+.cal-code {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+
+  background-color: rgba(239, 239, 239, 0.466);
+  h1 {
+    text-align: left;
+    font-weight: bold;
+  }
+  code {
+    font-size: 0px;
+  }
+}
