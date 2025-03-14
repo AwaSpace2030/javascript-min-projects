@@ -18,7 +18,7 @@ header.innerHTML = `
         <ul class="right-nav">
             <li><a href="index.html" class="link">Home</a></li>
             <li>
-                <a href="https://github.com/awadh?tab=repositories" class="link" target="_blank">GitHub</a>
+                <a href="https://github.com/AwaSpace2030/javascript-min-projects" class="link" target="_blank">GitHub</a>
                 <i class="ri-github-fill"></i>
             </li>
         </ul>
